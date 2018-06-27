@@ -1,0 +1,28 @@
+<br>
+Aqui va el login
+<br>
+Valores de las variables: <br>
+
+Key1: {{key}}<br>
+Key2: {{key2}}<br>
+
+
+<br>
+
+<label >Usuario</label><br>
+{{input type="text" name="" placeholder="usuario" value=usuario}}
+<br>
+
+<label>Pass</label><br>
+{{input type="password" name="" placeholder="pass" value=pass}}
+<br>
+<button {{action 'login' usuario pass}}
+>Acceder</button>
+<br>
+
+{{#if session.currentUser}}
+	Session iniciada como {{session.currentUser.email}}<br>
+
+	<button {{action 'logout' on='click'}}>Logout</button>
+
+{{/if}}
