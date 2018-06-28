@@ -8,6 +8,15 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('login');
+  this.route('index')
+  // this.route('una');
+  // this.route('dos');
+  // this.route('tres');
+  this.route('logged', {path: '/'}, function() {
+    this.route('una');
+    this.route('dos');
+    this.route('tres');
+  });
 });
 
 export default Router;

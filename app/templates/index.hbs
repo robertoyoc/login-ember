@@ -1,0 +1,6 @@
+{{#if session.currentUser}}
+	Session iniciada como {{session.currentUser.email}}<br>
+
+	<button {{action 'logout' on='click'}}>Logout</button>
+
+{{/if}}

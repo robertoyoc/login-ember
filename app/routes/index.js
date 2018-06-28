@@ -7,9 +7,8 @@ export default Route.extend({
 		return this.get('session').fetch().then(this.checkAuth.bind(this)).catch(this.checkAuth.bind(this))
 	},
 	checkAuth() {
-		if (this.get('session.isAuthenticated')) { //si ya esta authenticado
-			return this.transitionTo('index') //lo mando al index
+		if (!this.get('session.isAuthenticated')) { //si no está authenticado
+			return this.transitionTo('login')
 		}
-
 	}
 });

@@ -14,13 +14,22 @@ export default Controller.extend({
 				alert('No es un correo')
 			}
 			this.get('session').open('firebase', {
-				provider: 'google',
-				// email: user,
-				// password: pass
+				provider: 'password',
+				email: user,
+				password: pass
 			}).then(()=>{
 				//si
 				alert('si a huevo si')
-			}).catch(()=>{
+				this.transitionToRoute('index')
+			}).catch((e)=>{
+				console.log(e)
+				switch(e.code){
+					case "auth/user-not-found":
+					alert('usuario no encontrado')
+					break;
+					case "auth/wrong-password":
+					alert('contraseña incorrecta')
+				}
 				//no
 				alert('nel prro')
 			})
